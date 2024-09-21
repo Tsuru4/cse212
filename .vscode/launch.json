@@ -1,0 +1,188 @@
+
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "01 Individual Activity",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week01-teach",
+            "program": "${workspaceFolder}/week01/teach/bin/Debug/net8.0/teach.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/week01/teach",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "01 Analyze: Performance",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week01-analyze",
+            "program": "${workspaceFolder}/week01/analyze/bin/Debug/net8.0/analyze.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/week01/analyze",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "01 Code: Dynamic Arrays",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week01-code",
+            "program": "dotnet",
+            "args": ["test", "-l:\"console;verbosity=normal\""],
+            "cwd": "${workspaceFolder}/week01/code",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "02 Learning Activity",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week02-learn",
+            "program": "${workspaceFolder}/week02/learn/bin/Debug/net8.0/learn.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/week02/learn",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "02 Team Activity",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week02-teach",
+            "program": "${workspaceFolder}/week02/teach/bin/Debug/net8.0/teach.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/week02/teach",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "02 Analyze: Stacks",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week02-analyze",
+            "program": "${workspaceFolder}/week02/analyze/bin/Debug/net8.0/analyze.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/week02/analyze",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "02 Code: Queues",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week02-code",
+            "program": "dotnet",
+            "args": ["test", "-l:\"console;verbosity=normal\""],
+            "cwd": "${workspaceFolder}/week02/code",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "03 Learning Activities",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week03-learn",
+            "program": "${workspaceFolder}/week03/learn/bin/Debug/net8.0/learn.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/week03/learn",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "03 Team Activity",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week03-teach",
+            "program": "${workspaceFolder}/week03/teach/bin/Debug/net8.0/teach.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/week03/teach",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "03 Code: Sets and Maps",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week03-code",
+            "program": "dotnet",
+            "args": ["test", "-l:\"console;verbosity=normal\""],
+            "cwd": "${workspaceFolder}/week03/code",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "04 Code: Linked Lists",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week04-code",
+            "program": "dotnet",
+            "args": ["test", "-l:\"console;verbosity=normal\""],
+            "cwd": "${workspaceFolder}/week04/code",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "05 Code: Recursion",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week05-code",
+            "program": "dotnet",
+            "args": ["test", "-l:\"console;verbosity=normal\""],
+            "cwd": "${workspaceFolder}/week05/code",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "06 Code: Trees",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-week06-code",
+            "program": "dotnet",
+            "args": ["test", "-l:\"console;verbosity=normal\""],
+            "cwd": "${workspaceFolder}/week06/code",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "Sandbox Project",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-sandbox-sandbox_project",
+            "program": "${workspaceFolder}/sandbox/sandbox_project/bin/Debug/net8.0/sandbox_project.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/sandbox/sandbox_project",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+    ]
+}
