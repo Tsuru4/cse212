@@ -14,6 +14,28 @@ public class CustomerService {
         // Scenario: 
         // Expected Result: 
         Console.WriteLine("Test 1");
+        var queue1 = new CustomerService(3);
+        if (queue1._maxSize == 10)
+        {
+            Console.WriteLine("Customer 1 Passing _maxSize");
+        }
+        else
+        {
+            Console.WriteLine("Error: incorrect size for Customer 1");
+            Console.WriteLine(queue1._maxSize);
+        }
+        var queue2 = new CustomerService(12);
+        if (queue2._maxSize == 12)
+        {
+            Console.WriteLine("Customer 2 Passing _maxSize");
+        }
+        else
+        {
+            Console.WriteLine("Error: incorrect size for Customer 2");
+            Console.WriteLine(queue2._maxSize);
+        }
+
+
 
         // Defect(s) Found: 
 
@@ -23,6 +45,13 @@ public class CustomerService {
         // Scenario: 
         // Expected Result: 
         Console.WriteLine("Test 2");
+
+        for (int i = 0; i < 10;i++)
+        {
+            queue1.AddNewCustomer();
+        }
+
+
 
         // Defect(s) Found: 
 
