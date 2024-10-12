@@ -40,7 +40,11 @@ public class TakingTurnsQueue
         else
         {
             Person person = _people.Dequeue();
-            if (person.Turns > 1)
+            if (person.Turns < 1)
+            {
+                _people.Enqueue(person);//note that in this case, the number of turns in not being decremented, to avoid the rare case that the count goes below the limit for negative numbers.
+            }
+            if (person.Turns > 1)//the code here is incomplete. This handles finite turns, but nothing handles the case of infinite turns. An if loop has been inserted abpve to address the case of infinite turns
             {
                 person.Turns -= 1;
                 _people.Enqueue(person);
