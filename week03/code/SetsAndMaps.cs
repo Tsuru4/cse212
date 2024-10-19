@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 
 public static class SetsAndMaps
@@ -21,8 +22,28 @@ public static class SetsAndMaps
     /// <param name="words">An array of 2-character words (lowercase, no duplicates)</param>
     public static string[] FindPairs(string[] words)
     {
-        // TODO Problem 1 - ADD YOUR CODE HERE
-        return [];
+        var wordSet = new HashSet<string>(words);
+        var matches = new HashSet<string>();
+        foreach (string word in words)
+        {
+            string alternate = word[1].ToString() + word[0];
+            if (wordSet.Contains(alternate)&&!matches.Contains(word)&&!matches.Contains(alternate)&&(word[0]!=word[1]))
+            {
+                matches.Add(alternate);
+                
+            }
+        }
+        string[] pairs = new string[matches.Count];
+        int matchCounter = 0;
+        foreach (string word in matches)
+        {
+            pairs[matchCounter] += word;
+            pairs[matchCounter] += " & ";
+            pairs[matchCounter] += word[1].ToString() + word[0];
+            matchCounter++;
+        }
+
+        return pairs;
     }
 
     /// <summary>
@@ -43,6 +64,15 @@ public static class SetsAndMaps
         {
             var fields = line.Split(",");
             // TODO Problem 2 - ADD YOUR CODE HERE
+            string degree = fields[3];
+            if (degrees.ContainsKey(degree))
+            {
+                degrees[degree]++;
+            }
+            else
+            {
+            degrees.Add(degree,1);
+            }
         }
 
         return degrees;
@@ -66,7 +96,24 @@ public static class SetsAndMaps
     /// </summary>
     public static bool IsAnagram(string word1, string word2)
     {
-        // TODO Problem 3 - ADD YOUR CODE HERE
+        word1 = word1.ToLower().Replace(" ", "");
+        word2 = word2.ToLower().Replace(" ", "");
+        if (word1.Length == word2.Length)
+        {
+            var match = new List<char>(word1);
+            foreach (char c in word2)
+            {
+                if (match.Contains(c))
+                {
+                    match.Remove(c);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        return true;
+        }
         return false;
     }
 
