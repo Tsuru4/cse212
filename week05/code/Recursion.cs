@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.InteropServices;
 
 public static class Recursion
 {
@@ -14,8 +15,14 @@ public static class Recursion
     /// </summary>
     public static int SumSquaresRecursive(int n)
     {
-        // TODO Start Problem 1
-        return 0;
+        if (n<=0)
+        {
+            return 0;
+        }
+        else
+        {
+            return ((n*n) + SumSquaresRecursive(n-1));
+        }
     }
 
     /// <summary>
@@ -39,7 +46,23 @@ public static class Recursion
     /// </summary>
     public static void PermutationsChoose(List<string> results, string letters, int size, string word = "")
     {
-        // TODO Start Problem 2
+        if (letters.Length <= 0)
+        {
+            if (!results.Contains(word))
+                {
+                results.Add(word);
+                Console.Write(word);
+                }
+        }
+        else
+        {
+            for (int i = 0; i < letters.Length; i++)
+                {
+                    var lettersLeft = letters.Remove(i,1);
+                    PermutationsChoose(results, lettersLeft, size, word + letters[i]);
+                }
+        }
+
     }
 
     /// <summary>
@@ -97,9 +120,21 @@ public static class Recursion
             return 4;
 
         // TODO Start Problem 3
-
+        if (remember != null)
+        {
+            if (remember.ContainsKey(s))
+            {
+                return remember[s];
+            }
         // Solve using recursion
-        decimal ways = CountWaysToClimb(s - 1) + CountWaysToClimb(s - 2) + CountWaysToClimb(s - 3);
+
+        }
+        else
+        {
+            remember = new Dictionary<int, decimal>();
+        }
+        decimal ways = CountWaysToClimb(s - 1, remember) + CountWaysToClimb(s - 2, remember) + CountWaysToClimb(s - 3, remember);
+        remember.Add(s, ways);
         return ways;
     }
 
