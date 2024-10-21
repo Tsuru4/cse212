@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 
 public static class Recursion
 {
@@ -46,7 +47,7 @@ public static class Recursion
     /// </summary>
     public static void PermutationsChoose(List<string> results, string letters, int size, string word = "")
     {
-        if (letters.Length <= 0)
+        if (word.Length == size)
         {
             if (!results.Contains(word))
                 {
@@ -153,25 +154,62 @@ public static class Recursion
     /// </summary>
     public static void WildcardBinary(string pattern, List<string> results)
     {
-        // TODO Start Problem 4
+        for (int i = 0; i < pattern.Length; i++)
+        {
+            if (pattern[i] == '*')
+            {
+             
+                string front = pattern.Substring(0,i);
+               
+              
+                string back = pattern.Substring(i+1,pattern.Length-(i+1));
+                
+                string pattern0 = front + "0" + back;
+                WildcardBinary(pattern0,results);
+                string pattern1 = front + '1' + back;
+                WildcardBinary(pattern1,results);
+                return;
+            }
+        }
+        results.Add(pattern);
     }
 
     /// <summary>
     /// Use recursion to insert all paths that start at (0,0) and end at the
     /// 'end' square into the results list.
     /// </summary>
-    public static void SolveMaze(List<string> results, Maze maze, int x = 0, int y = 0, List<ValueTuple<int, int>>? currPath = null)
+    public static void SolveMaze(List<string> results, Maze maze, int x = 0, int y = 0, List<ValueTuple<int, int>>? currPath = null)//this function is incomplete; I can only get it to solve the maze once for some reason
     {
         // If this is the first time running the function, then we need
         // to initialize the currPath list.
         if (currPath == null) {
             currPath = new List<ValueTuple<int, int>>();
         }
-        
-        // currPath.Add((1,2)); // Use this syntax to add to the current path
+        currPath.Add((x,y));
+        if (maze.IsEnd(x,y))
+        {
 
-        // TODO Start Problem 5
-        // ADD CODE HERE
+            results.Add(currPath.AsString());
+            return;
+        }
+        // currPath.Add((1,2)); // Use this syntax to add to the current path
+        if (maze.IsValidMove(currPath, x - 1, y))
+        {
+            SolveMaze(results,maze,x-1,y,currPath);
+        }
+        if (maze.IsValidMove(currPath, x + 1, y))
+        {
+            SolveMaze(results,maze, x+1, y, currPath);
+        }
+        if (maze.IsValidMove(currPath,x,y - 1))
+        {
+            SolveMaze(results,maze,x,y-1,currPath);
+        }
+        if (maze.IsValidMove(currPath,x,y+1))
+        {
+            SolveMaze(results,maze,x,y+1,currPath);
+        }
+        
 
         // results.Add(currPath.AsString()); // Use this to add your path to the results array keeping track of complete maze solutions when you find the solution.
     }
